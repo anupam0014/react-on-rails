@@ -4,6 +4,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import NavbarInstance from './Navbars';
 
 class HelloWorld extends React.Component {
   static propTypes = {
@@ -20,6 +21,7 @@ class HelloWorld extends React.Component {
 
     return (
       <div>
+        <NavbarInstance />
         <h1>Hello World!</h1>
         <p>Timestamp: {timestamp}</p>
       </div>

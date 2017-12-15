@@ -4,10 +4,10 @@
     <title>rails-react-boilerplate</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag asset_path('app.css', 'css'), media: 'all' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   </head>
 
   <body>
-    <div id="app"></div>
     <%= yield %>
 
     <%= javascript_include_tag asset_path('app.vendor.js', 'js') %>

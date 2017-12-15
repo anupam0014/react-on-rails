@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
+  	# user = nil
+  	# if user.nil?
+  	# 	render 'main/landing_page'
+  	# end
   end
 
   def timestamp
