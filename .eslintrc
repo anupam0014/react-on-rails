@@ -1,6 +1,6 @@
 {
   "extends": ["airbnb"],
-  "plugins": ["babel"],
+  "plugins": ["babel", "jsx-a11y"],
   "parser": "babel-eslint",
   "env": {
     "browser": true
@@ -11,6 +11,13 @@
     "import/prefer-default-export": 0,
     "react/jsx-curly-spacing": [2, { "when": "never", "children": true }],
     "react/jsx-filename-extension": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "jsx-a11y/label-has-for": [ 2, {
+      "components": [ "Label" ],
+      "required": {
+          "some": [ "nesting", "id" ]
+      },
+      "allowChildren": false,
+    }]
   }
 }

@@ -9,12 +9,13 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 // Include the main scss file for webpack processing.
 import '../css/app.scss';
 
 import rootReducer from './reducers/root-reducer';
-import HelloWorld from './containers/HelloWorldContainer';
+import App from './components/App';
 import getLogger from './util/logger';
 
 const log = getLogger('App');
@@ -34,7 +35,9 @@ const init = () => {
 
   ReactDom.render(
     <Provider store={store}>
-      <HelloWorld />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>,
     document.getElementById('app'),
   );

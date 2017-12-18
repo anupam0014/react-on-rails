@@ -4,7 +4,7 @@
 
 import { connect } from 'react-redux';
 
-import HelloWorld from '../components/HelloWorld';
+import Main from '../components/Main';
 import { fetchServerTimestamp } from '../actions/server-timestamp';
 
 const mapStateToProps = ({ serverTimestamp }) => ({
@@ -18,4 +18,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HelloWorld);
+)(Main);

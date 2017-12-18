@@ -19,10 +19,10 @@ config.plugins = [
     minChunks: module => /node_modules/.test(module.resource),
   }),
   new ExtractTextPlugin('css/app.css'),
-  new StyleLintPlugin({
-    syntax: 'scss',
-    failOnError: true,
-  }),
+  // new StyleLintPlugin({
+  //   syntax: 'scss',
+  //   failOnError: true,
+  // }),
 ];
 
 module.exports = config;
