@@ -4,10 +4,6 @@
 
 import axios from 'axios';
 
-import getLogger from '../util/logger';
-
-const log = getLogger('ServerTimestampAction');
-
 export const SERVER_TIMESTAMP_UPDATE = 'server-timestamp/UPDATE';
 
 const serverTimestampUpdate = (timestamp) => {

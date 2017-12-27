@@ -3,12 +3,27 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'react-router';
 
-const ProblemThumbnail = () => (
-  <div className="img-thumbnail">
-    <h1>Problem Name</h1>
-    <p>Problem description</p>
-  </div>
-);
+export default class ProblemThumbnail extends React.Component {
+  static propTypes = {
+    problems: PropTypes.isRequired,
+    fetchAllProblems: PropTypes.func.isRequired,
+  }
 
-export default ProblemThumbnail;
+  componentDidMount() {
+    this.props.fetchAllProblems();
+  }
+
+  render() {
+    if (this.props.problems == null) {
+      return false;
+    }
+    return (
+      <div>
+        <Link to="/problems" href="/problems" />
+      </div>
+    );
+  }
+}

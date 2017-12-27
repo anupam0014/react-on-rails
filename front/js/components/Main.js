@@ -5,7 +5,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-import ProblemThumbnail from './ProblemThumbnail';
+import ProblemThumbnail from '../containers/ProblemThumbnailContainer';
 import ProblemSolution from './ProblemSolution';
 import ProblemForm from './ProblemForm';
 
@@ -27,7 +27,7 @@ class Main extends React.Component {
         <main>
           <Switch>
             <Route exact path="/" component={ProblemThumbnail} />
-            <Route path="/problem/:id" component={ProblemSolution} />
+            <Route path="/problems/:id" component={ProblemSolution} />
             <Route path="/form" component={ProblemForm} />
           </Switch>
         </main>

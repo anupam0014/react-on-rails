@@ -7,7 +7,7 @@ export default class ProblemForm extends React.Component {
     this.state = {
       name: '',
       description: '',
-      solution: '',
+      explanation: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,8 +25,8 @@ export default class ProblemForm extends React.Component {
         this.setState({ description: event.target.value });
         break;
       }
-      case 'solution': {
-        this.setState({ solution: event.target.value });
+      case 'explanation': {
+        this.setState({ explanation: event.target.value });
         break;
       }
       default: {
@@ -38,9 +38,7 @@ export default class ProblemForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios.post('/api/problems', {
-      params: {
-        problem: this.state,
-      },
+      problem: this.state,
     })
       .then(() => {
         this.setState({ name: event.target.value });
@@ -78,9 +76,9 @@ export default class ProblemForm extends React.Component {
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
-                <label htmlFor="solution">
-                  Solution
-                  <textarea className="form-control" id="solution" value={this.state.solution} onChange={this.handleChange} rows="8" />
+                <label htmlFor="explanation">
+                  Explanation
+                  <textarea className="form-control" id="explanation" value={this.state.explanation} onChange={this.handleChange} rows="8" />
                 </label>
               </div>
             </div>
