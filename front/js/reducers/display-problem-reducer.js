@@ -2,10 +2,11 @@
  * @fileOverview The Server Timestamp reducer.
  */
 
-import { ALL_PROBLEMS } from '../actions/display-problem';
+import { ALL_PROBLEMS, SELECTED_PROBLEM } from '../actions/display-problem';
 
 const initialState = {
   problems: null,
+  selected_problem: null,
 };
 
 const displayProblemReducer = (state = initialState, action = {}) => {
@@ -14,6 +15,11 @@ const displayProblemReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         problems: action.problems,
+      };
+    case SELECTED_PROBLEM:
+      return {
+        ...state,
+        selected_problem: action.problem,
       };
 
     default:

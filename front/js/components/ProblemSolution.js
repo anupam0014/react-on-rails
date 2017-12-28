@@ -2,20 +2,41 @@
  * @fileOverview Problem Thumbnail component.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const ProblemSolution = () => (
-  <div className="solution-container">
-    <h1>Prime XOR</h1>
-    <hr className="hr-danger" />
-    <p>BJP president Amit Shah on Wednesday hit<br />
-    back at former Prime Minister Manmohan Singh<br />
-    who put out a televised version of his response<br />
-    to Prime Minister Narendra Modi’s accusations over<br />
-    a dinner he attended with Pakistani diplomatic officials,<br />
-    former Indian diplomats and senior journalists.
-    </p>
-  </div>
-);
+export default class ProblemSolution extends Component {
+  static defaultProps = {
+    problem: {},
+  }
 
-export default ProblemSolution;
+  static propTypes = {
+    problem: PropTypes.oneOfType([null, PropTypes.object]),
+    fetchSelectedProblem: PropTypes.func.isRequired,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }),
+    }).isRequired,
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.props.fetchSelectedProblem(id);
+  }
+
+  render() {
+    if (this.props.problem == null) {
+      return false;
+    }
+
+    return (
+      <div className="solution-container">
+        <h1>{this.props.problem.name}</h1>
+        <hr className="hr-danger" />
+        <p>{this.props.problem.description}
+        </p>
+      </div>
+    );
+  }
+}

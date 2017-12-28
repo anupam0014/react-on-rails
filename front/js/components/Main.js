@@ -6,7 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import ProblemThumbnail from '../containers/ProblemThumbnailContainer';
-import ProblemSolution from './ProblemSolution';
+import ProblemSolution from '../containers/ProblemSolutionContainer';
 import ProblemForm from './ProblemForm';
 
 class Main extends React.Component {

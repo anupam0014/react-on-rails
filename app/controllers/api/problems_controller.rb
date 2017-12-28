@@ -12,6 +12,16 @@ class Api::ProblemsController < ApplicationController
   	Problem.create(problem_params)
   end
 
+  def show
+  	problem = Problem.find(params[:id])
+  	unless problem.nil?
+			render json: { problem: problem }
+		else
+			render json: { error: problem.errors }, status: 400
+		end
+
+  end
+
   private
   def problem_params
   	params.required(:problem).permit(:name, :description, :explanation)
