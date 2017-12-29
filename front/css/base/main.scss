@@ -15,8 +15,11 @@
 .solution-container {
 	hr {
 	  height: 4px;
-	  margin-left: 15px;
-	  margin-bottom:-3px;
+	}
+}
+.form-container {
+	label {
+		display: block;
 	}
 }
 

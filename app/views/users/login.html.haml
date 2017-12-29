@@ -1,0 +1,35 @@
+.mainContent
+  .grid
+    %h1.largeHeader Sign up
+    %p.centeredDescription.col_4
+      Already signed up? You can
+      %a{:href => ""} log in here.
+    .col_1
+      %form.signupForm
+        %label{:for => "name"} Full name
+        %br/
+        %input#name.shortInput{:type => "text"}/
+        %br/
+        %label{:for => "email"} Email
+        %br/
+        %input#email.shortInput{:type => "text"}/
+        %br/
+        %label{:for => "password"} Password
+        %br/
+        %input#password.shortInput{:type => "text"}/
+        %br/
+        %label{:for => "confirmPassword"} Confirm password
+        %br/
+        %input#confirmPassword.shortInput{:type => "text"}/
+        %br/
+    / end column 2 contact form
+    .col_2
+      %h4 Upload Profile Picture
+      .placeholderPic
+      %a.secondaryButton.uploadButton{:href => ""} Choose photo from a url
+      %a.secondaryButton.uploadButton{:href => ""} Choose photo from your computer
+    / end 2 column upload profile pic
+    .col_4
+      %a.button.createAccount{:href => ""} Create account
+  / end grid
+/ end mainContent

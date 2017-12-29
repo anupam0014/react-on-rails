@@ -50,7 +50,7 @@ export default class ProblemForm extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container form-container">
         <form onSubmit={this.handleSubmit}>
           <h2>Submit Your Entry</h2>
           <div className="row">
