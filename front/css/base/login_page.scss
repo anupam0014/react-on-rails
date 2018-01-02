@@ -5,8 +5,7 @@ $color_4: rgba(255,255,255,0.6);
 $font_family_1: Arial;
 $font_family_2: 'Exo', sans-serif;
 
-@import "http://fonts.googleapis.com/css?family=Exo:100,200,400";
-@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300";
+
 body {
 	margin: 0;
 	padding: 0;
@@ -23,7 +22,7 @@ body {
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+	background-image: url(/assets/code-monkey.jpg);
 	background-size: cover;
 	-webkit-filter: blur(5px);
 	z-index: 0;
@@ -80,7 +79,7 @@ body {
 			border: 1px solid rgba(255,255,255,0.9);
 		}
 	}
-	input[type=password] {
+	input[type=password], input[type=email] {
 		width: 250px;
 		height: 30px;
 		background: transparent;
@@ -97,8 +96,8 @@ body {
 			border: 1px solid rgba(255,255,255,0.9);
 		}
 	}
-	input[type=button] {
-		width: 260px;
+	input[type=submit] {
+		width: 250px;
 		height: 35px;
 		background: #fff;
 		border: 1px solid #fff;
@@ -120,10 +119,10 @@ body {
 			outline: none;
 		}
 	}
-}
-&::-webkit-input-placeholder {
-	color: $color_4;
-}
-&::-moz-input-placeholder {
-	color: $color_4;
+	&::-webkit-input-placeholder {
+		color: $color_4;
+	}
+	&::-moz-input-placeholder {
+		color: $color_4;
+	}
 }

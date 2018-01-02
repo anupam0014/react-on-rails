@@ -1,35 +1,111 @@
-.mainContent
-  .grid
-    %h1.largeHeader Sign up
-    %p.centeredDescription.col_4
-      Already signed up? You can
-      %a{:href => ""} log in here.
-    .col_1
-      %form.signupForm
-        %label{:for => "name"} Full name
-        %br/
-        %input#name.shortInput{:type => "text"}/
-        %br/
-        %label{:for => "email"} Email
-        %br/
-        %input#email.shortInput{:type => "text"}/
-        %br/
-        %label{:for => "password"} Password
-        %br/
-        %input#password.shortInput{:type => "text"}/
-        %br/
-        %label{:for => "confirmPassword"} Confirm password
-        %br/
-        %input#confirmPassword.shortInput{:type => "text"}/
-        %br/
-    / end column 2 contact form
-    .col_2
-      %h4 Upload Profile Picture
-      .placeholderPic
-      %a.secondaryButton.uploadButton{:href => ""} Choose photo from a url
-      %a.secondaryButton.uploadButton{:href => ""} Choose photo from your computer
-    / end 2 column upload profile pic
-    .col_4
-      %a.button.createAccount{:href => ""} Create account
-  / end grid
-/ end mainContent
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %title Code Monkey
+    :css
+      @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+      @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+      
+      body{
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      
+        color: #fff;
+        font-family: Arial;
+        font-size: 12px;
+      }
+      
+      .body{
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: -40px;
+        bottom: -40px;
+        width: auto;
+        height: auto;
+        background-image: url(/assets/code-monkey.jpg);
+        background-size: cover;
+        -webkit-filter: blur(3px);
+        z-index: 0;
+      }
+      
+      .grad{
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: -40px;
+        bottom: -40px;
+        width: auto;
+        height: auto;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+        z-index: 1;
+        opacity: 0.7;
+      }
+      
+      .header{
+        position: absolute;
+        top: calc(50% - 35px);
+        left: calc(50% - 255px);
+        z-index: 2;
+      }
+      
+      .header div{
+        float: left;
+        color: #fff;
+        font-family: 'Exo', sans-serif;
+        font-size: 35px;
+        font-weight: 200;
+      }
+      
+      .header div span{
+        color: #5379fa !important;
+      }
+      
+      .login input[type=button]:hover{
+        opacity: 0.8;
+      }
+      
+      .login input[type=button]:active{
+        opacity: 0.6;
+      }
+      
+      .login input[type=text]:focus{
+        outline: none;
+        border: 1px solid rgba(255,255,255,0.9);
+      }
+      
+      .login input[type=password]:focus{
+        outline: none;
+        border: 1px solid rgba(255,255,255,0.9);
+      }
+      
+      .login input[type=button]:focus{
+        outline: none;
+      }
+      
+      ::-webkit-input-placeholder{
+         color: rgba(255,255,255,0.6);
+      }
+      
+      ::-moz-input-placeholder{
+         color: rgba(255,255,255,0.6);
+      }
+    %script{:src => "prefixfree.min.js"}
+  %body
+    .body
+    .grad
+    .header
+      %div
+        Code
+        %span Monkey
+    %br/
+    .login
+      = form_for(@user, remote: true )do |f|
+        = f.text_field :name, placeholder: "name"
+        = f.email_field :email, placeholder: "e-mail"
+        = f.password_field :password, placeholder: "password"
+        = f.password_field :password_confirmation, placeholder: "password confirmation"
+        = f.submit "Create my account"

@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "UTF-8"}/
-    %title CodePen - Random Login Form
+    %title Code Monkey
     :css
       @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
       @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
@@ -26,9 +26,9 @@
       	bottom: -40px;
       	width: auto;
       	height: auto;
-      	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+      	background-image: url(/assets/code-monkey.jpg);
       	background-size: cover;
-      	-webkit-filter: blur(5px);
+      	-webkit-filter: blur(3px);
       	z-index: 0;
       }
       
@@ -64,58 +64,6 @@
       	color: #5379fa !important;
       }
       
-      .login{
-      	position: absolute;
-      	top: calc(50% - 75px);
-      	left: calc(50% - 50px);
-      	height: 150px;
-      	width: 350px;
-      	padding: 10px;
-      	z-index: 2;
-      }
-      
-      .login input[type=text]{
-      	width: 250px;
-      	height: 30px;
-      	background: transparent;
-      	border: 1px solid rgba(255,255,255,0.6);
-      	border-radius: 2px;
-      	color: #fff;
-      	font-family: 'Exo', sans-serif;
-      	font-size: 16px;
-      	font-weight: 400;
-      	padding: 4px;
-      }
-      
-      .login input[type=password]{
-      	width: 250px;
-      	height: 30px;
-      	background: transparent;
-      	border: 1px solid rgba(255,255,255,0.6);
-      	border-radius: 2px;
-      	color: #fff;
-      	font-family: 'Exo', sans-serif;
-      	font-size: 16px;
-      	font-weight: 400;
-      	padding: 4px;
-      	margin-top: 10px;
-      }
-      
-      .login input[type=button]{
-      	width: 260px;
-      	height: 35px;
-      	background: #fff;
-      	border: 1px solid #fff;
-      	cursor: pointer;
-      	border-radius: 2px;
-      	color: #a18d6c;
-      	font-family: 'Exo', sans-serif;
-      	font-size: 16px;
-      	font-weight: 400;
-      	padding: 6px;
-      	margin-top: 10px;
-      }
-      
       .login input[type=button]:hover{
       	opacity: 0.8;
       }
@@ -145,7 +93,7 @@
       ::-moz-input-placeholder{
          color: rgba(255,255,255,0.6);
       }
-    %script{:src => "js/prefixfree.min.js"}
+    %script{:src => "prefixfree.min.js"}
   %body
     .body
     .grad
@@ -160,7 +108,12 @@
       %input{:name => "password", :placeholder => "password", :type => "password"}/
       %br/
       %input{:type => "button", :value => "Login"}/
-    %script{:src => "http://codepen.io/assets/libs/fullpage/jquery.js"}
-    %div
-      This is Haml
-      = link_to "SignUP", login_users_path
+  / %h1 Contact
+  / = form_for :session, url: login_users_path, :html => {:class => 'form-horizontal login' } do |f|
+  /   = f.input :name, :required => true
+  /   = f.input :email, :required => true
+
+  /   .hidden
+  /     = f.input :nickname, :hint => 'Leave this field blank!'
+  /   .form-actions
+  /     = f.button :submit, 'Send message', :class=> "btn btn-primary"
