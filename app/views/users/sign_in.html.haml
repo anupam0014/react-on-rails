@@ -103,17 +103,13 @@
         %span Monkey
     %br/
     .login
-      %input{:name => "user", :placeholder => "username", :type => "text"}/
-      %br/
-      %input{:name => "password", :placeholder => "password", :type => "password"}/
-      %br/
-      %input{:type => "button", :value => "Login"}/
-  / %h1 Contact
-  / = form_for :session, url: login_users_path, :html => {:class => 'form-horizontal login' } do |f|
-  /   = f.input :name, :required => true
-  /   = f.input :email, :required => true
+      %form{"accept-charset" => "UTF-8", action: root_path, :method => "post"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+        %input{:name => "authenticity_token", :type => "hidden", :value => "NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo="}/
+        %input#session_email.form-control{name: "email", type: "text", placeholder: 'Enter e-mail'}/
+        %input#session_password{:name => "password", :type => "password", placeholder: 'Enter Password'}/
+        %input.btn.btn-primary{:name => "commit", :type => "submit", :value => "Log in"}/
+      %p 
+        Not A Member? 
+        =link_to 'Sign Up', new_user_path 
 
-  /   .hidden
-  /     = f.input :nickname, :hint => 'Leave this field blank!'
-  /   .form-actions
-  /     = f.button :submit, 'Send message', :class=> "btn btn-primary"

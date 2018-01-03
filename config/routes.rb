@@ -5,11 +5,7 @@ Rails.application.routes.draw do
 
   post 'authenticate', to: 'authentication#authenticate'
 
-  resources :users do
-  	collection do
-  		get '/login', to: 'users#login'
-  	end
-  end
+  resources :users
 
   namespace :api, defaults: { format: :json } do
     resources :problems
