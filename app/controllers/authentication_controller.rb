@@ -7,7 +7,8 @@ class AuthenticationController < ApplicationController
 			session[:auth_token] = command.result
 			redirect_to root_path
 		else
-			render json: { error: command.errors }, status: :unauthorized
+			redirect_to root_path
+			# render json: { error: command.errors }, status: :unauthorized
 		end
 	end
 

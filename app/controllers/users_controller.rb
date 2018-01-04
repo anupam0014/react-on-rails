@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 		end  	
   end
 
+  def logout
+    session[:auth_token]= nil
+  end
+
   private
   def create_user_param
   	params.required(:user).permit(:name, :email, :password)
