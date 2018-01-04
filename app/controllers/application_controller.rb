@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def authenticate_request
-  	@current_user = AuthorizeApiRequest.call(request.headers).result
-  	binding.pry
+  	@current_user = AuthorizeApiRequest.call(session[:auth_token]).result
  		unless @current_user
  			render 'users/sign_in' if !['new', 'create'].include? params[:action] 
  		end

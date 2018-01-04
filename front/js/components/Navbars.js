@@ -32,6 +32,7 @@ const NavbarInstance = () => (
           {' '}
           <Button type="submit">Submit</Button>
         </Navbar.Form>
+        <NavItem eventKey={4} href="/logout" className='logout'>Log Out</NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
