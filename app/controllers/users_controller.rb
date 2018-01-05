@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:auth_token]= nil
+    render json: { success: 'You are successfully logged out' }
   end
 
   private

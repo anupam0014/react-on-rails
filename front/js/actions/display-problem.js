@@ -3,6 +3,9 @@
  */
 
 import axios from 'axios';
+import getLogger from '../util/logger';
+
+const log = getLogger('DisplayProblemAction');
 
 export const ALL_PROBLEMS = 'all_problems';
 export const SELECTED_PROBLEM = 'selected_problem';
@@ -14,7 +17,6 @@ const allProblems = (problems) => {
 export const fetchAllProblems = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/problems');
-
     dispatch(allProblems(res.data.problems));
   } catch (error) {
     log.error(error);
@@ -22,14 +24,14 @@ export const fetchAllProblems = () => async (dispatch) => {
 };
 
 const selectedProblem = (problem) => {
-	return { type: SELECTED_PROBLEM, problem };
+  return { type: SELECTED_PROBLEM, problem };
 };
 
-export const fetchSelectedProblem = (id) => async (dispatch) => {
-	try {
-		const res = await axios.get(`/api/problems/${id}`);
-		dispatch(selectedProblem(res.data.problem));
-	} catch (error) {
-		log.error(error);
-	}
+export const fetchSelectedProblem = id => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/problems/${id}`);
+    dispatch(selectedProblem(res.data.problem));
+  } catch (error) {
+    log.error(error);
+  }
 };

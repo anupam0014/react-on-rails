@@ -5,20 +5,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl, Button } from 'react-bootstrap';
+import getLogger from '../util/logger';
+
+const log = getLogger('NavBarComponent');
 
 export default class NavbarInstance extends Component {
-  constructor(props) {
-    super(props);
-    this.onClickHandler = this.onClickHandler.bind(this);
-  }
-
-  onClickHandler() {
+  static onClickHandler() {
     axios.get('/logout')
       .then(() => {
-        console.log('successfuly logged out');
+        window.location.href = '/';
       })
       .catch((error) => {
-        console.log(error);
+        log.error(error);
       });
   }
 

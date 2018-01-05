@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import getLogger from '../util/logger';
+
+const log = getLogger('ProblemFormComponent');
 
 export default class ProblemForm extends React.Component {
   constructor(props) {
@@ -44,7 +47,7 @@ export default class ProblemForm extends React.Component {
         this.setState({ name: event.target.value });
       })
       .catch((error) => {
-        console.log(error);
+        log.error(error);
       });
   }
 

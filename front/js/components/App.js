@@ -4,7 +4,7 @@
 
 import React from 'react';
 import NavbarInstance from './Navbars';
-import Main from '../containers/MainContainer';
+import Main from './Main';
 
 const App = () => (
   <div className="container-fluid">
